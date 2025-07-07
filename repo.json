@@ -1,8 +1,0 @@
-{
-    "name": "Sann MovieIndo",
-    "description": "CodeSannz Repository",
-    "manifestVersion": 1,
-    "pluginLists": [
-      "https://raw.githubusercontent.com/CodeSannz/IndoMovie/refs/heads/builds/plugins.json"
-    ]
-}
