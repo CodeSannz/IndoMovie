@@ -21,3 +21,4 @@ cloudstream {
 
     iconUrl = "https://github.com/CodeAxella/IndoStream/raw/refs/heads/master/Dutamovie/icon.png"
 }
+
