@@ -16,6 +16,7 @@ class DutamoviePlugin: Plugin() {
         registerExtractorAPI(Embedwish())
         registerExtractorAPI(Doods())
         registerExtractorAPI(Lylxan())
+        registerExtractorAPI(Ghbrisk())
         registerExtractorAPI(FilelionsOn())
         registerExtractorAPI(Kotakajaib())
         registerExtractorAPI(Uplayer())
