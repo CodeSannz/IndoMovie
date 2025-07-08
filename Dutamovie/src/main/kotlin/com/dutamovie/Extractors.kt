@@ -57,7 +57,7 @@ class Doods : DoodLaExtractor() {
 
 class Dutamovie21 : StreamSB() {
     override var name = "Dutamovie21"
-    override var mainUrl = "https://main.dutamovie21.wiki/"
+    override var mainUrl = "https://dutamovie21.xyz"
 }
 
 class FilelionsTo : Filesim() {
