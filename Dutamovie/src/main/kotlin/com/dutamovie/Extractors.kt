@@ -89,6 +89,6 @@ class DbGdriveplayer : Gdriveplayer() {
     override var mainUrl = "https://database.gdriveplayer.us"
 }
 
-class Ghbrisk : StreamwishExt() {
+class Ghbrisk : StreamSB() {
     override var mainUrl = "https://ghbrisk.com"
 }
