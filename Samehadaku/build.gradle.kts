@@ -1,3 +1,4 @@
+// use an integer for version numbers
 version = 23
 
 
@@ -6,7 +7,7 @@ cloudstream {
     // All of these properties are optional, you can safely remove them
 
     // description = "Lorem Ipsum"
-     authors = listOf("Hexated", "CodeSannz")
+     authors = listOf("TeKuma25")
 
     /**
      * Status int as the following:
@@ -24,4 +25,3 @@ cloudstream {
 
     iconUrl = "https://www.google.com/s2/favicons?domain=https://samehadaku.world&sz=%size%"
 }
-
