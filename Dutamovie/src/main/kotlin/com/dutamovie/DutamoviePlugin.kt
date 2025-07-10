@@ -9,6 +9,9 @@ class DutamoviePlugin: Plugin() {
     override fun load(context: Context) {
         // All providers should be added in this manner. Please don't edit the providers list directly.
         registerMainAPI(DutaMovie())
+        registerMainAPI(Ngefilm())
+        registerMainAPI(Nodrakorid())
+        registerMainAPI(Pusatfilm())
         registerExtractorAPI(FilelionsTo())
         registerExtractorAPI(Likessb())
         registerExtractorAPI(DbGdriveplayer())
