@@ -1,13 +1,15 @@
 package com.nodrakorid
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.LoadResponse.Companion.addActors
+import com.lagradost.cloudstream3.LoadResponse.Companion.addTrailer
 import com.lagradost.cloudstream3.MainAPI
+import com.lagradost.cloudstream3.SearchResponse
 import com.lagradost.cloudstream3.TvType
 import com.lagradost.cloudstream3.mainPageOf
-import com.lagradost.cloudstream3.utils.*
-import com.lagradost.cloudstream3.utils.AppUtils.toJson
-import com.lagradost.cloudstream3.utils.AppUtils.tryParseJson
+import com.lagradost.cloudstream3.utils.ExtractorLink
+import com.lagradost.cloudstream3.utils.httpsify
+import com.lagradost.cloudstream3.utils.loadExtractor
 import java.net.URI
 import org.jsoup.nodes.Element
 
@@ -33,7 +35,7 @@ class Nodrakorid : MainAPI() {
         updatedMainUrl?.let { mainUrl = it }
     }
 
-    override var mainUrl = "https://nodrakor22.store"
+    override var mainUrl = "https://nodrakor22.store/"
     override var name = "Nodrakorid"
     override val supportedTypes = setOf(TvType.Movie)
 
