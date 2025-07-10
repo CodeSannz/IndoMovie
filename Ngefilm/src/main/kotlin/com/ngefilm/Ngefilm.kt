@@ -25,7 +25,6 @@ class Ngefilm : MainAPI() {
 
     override val mainPage =
             mainPageOf(
-                    "category/serial-tv/page/%d/" to "Movie Terbaru",
                     "country/korea/page/%d/" to "Serial TV Korea",
                     "country/indonesia/page/%d/" to "Serial TV Indonesia",
             )
