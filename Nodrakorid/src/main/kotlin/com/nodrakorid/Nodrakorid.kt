@@ -25,10 +25,11 @@ class Nodrakorid : MainAPI() {
 
     override val mainPage =
             mainPageOf(
-                    "genre/movie/page/%d/" to "Film Terbaru",
-                    "genre/drama/page/%d/" to "Drama Korea",
-                    "genre/c-drama/page/%d/" to "Drama China",
-                    "genre/fantasy/page/%d/" to "Fantasy",
+        "genre/movie/page/%d/" to "Film Terbaru",
+        "genre/korean-movie/page/%d/" to "Film Korea",
+        "genre/drama/page/%d/" to "Drama Korea",
+        "genre/c-drama/c-drama-c-drama/page/%d/" to "Drama China",
+        "genre/thai-drama/page/%d/" to "Drama Thailand",
             )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
