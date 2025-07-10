@@ -23,12 +23,11 @@ class Ngefilm : MainAPI() {
     override val supportedTypes =
             setOf(TvType.Movie, TvType.TvSeries, TvType.Anime, TvType.AsianDrama)
 
-    override val mainPage =
-            mainPageOf(
-                    "category/box-office/page/%d/" to "Movies Terbaru",
-                    "category/serial-tv/page/%d/" to "Series Terbaru",
-                    "category/animation/page/%d/" to "Series Korea",
-                    "country/korea/page/%d/" to "Series Indonesia",
+    override val mainPage = mainPageOf(
+        "/page/%d/?s&search=advanced&post_type=movie&index&orderby&genre&movieyear&country&quality=" to "Movies Terbaru",
+        "/page/%d/?s=&search=advanced&post_type=tv&index=&orderby=&genre=&movieyear=&country=&quality=" to "Series Terbaru",
+        "/page/%d/?s=&search=advanced&post_type=tv&index=&orderby=&genre=drakor&movieyear=&country=&quality=" to "Series Korea",
+        "/page/%d/?s=&search=advanced&post_type=tv&index=&orderby=&genre=&movieyear=&country=indonesia&quality=" to "Series Indonesia",
             )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
