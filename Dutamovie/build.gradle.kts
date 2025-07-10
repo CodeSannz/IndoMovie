@@ -1,11 +1,9 @@
 version = 2
 
 cloudstream {
+    description = "DutaMovie"
     language = "id"
-    // All of these properties are optional, you can safely remove them
-
-    description = "Includes: "
-    authors = listOf("CodeSannz")
+    authors = listOf("Hexated", "TeKuma25")
 
     /**
      * Status int as the following:
@@ -21,5 +19,5 @@ cloudstream {
         "Movie",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=gomov.bio&sz=%size%"
+    iconUrl = "https://www.google.com/s2/favicons?domain=scandal.dutamovie21.cc&sz=256"
 }
