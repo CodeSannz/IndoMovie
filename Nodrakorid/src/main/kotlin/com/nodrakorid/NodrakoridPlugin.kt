@@ -1,4 +1,4 @@
-package com.ngefilm
+package com.nodrakorid
 
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
