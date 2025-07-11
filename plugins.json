@@ -1,0 +1,106 @@
+[
+    {
+        "iconUrl": "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Dutamovie/icon.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/CodeSannz/IndoMovie",
+        "fileSize": 16369,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "CodeSannz"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 2,
+        "internalName": "Dutamovie",
+        "description": "DutaMovie",
+        "url": "https://raw.githubusercontent.com/CodeSannz/IndoMovie/builds/Dutamovie.cs3",
+        "name": "Dutamovie"
+    },
+    {
+        "iconUrl": "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Ngefilm/icon.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/CodeSannz/IndoMovie",
+        "fileSize": 19878,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "CodeSannz"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 1,
+        "internalName": "Ngefilm",
+        "description": "Ngefilm",
+        "url": "https://raw.githubusercontent.com/CodeSannz/IndoMovie/builds/Ngefilm.cs3",
+        "name": "Ngefilm"
+    },
+    {
+        "iconUrl": "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Nodrakorid/icon.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/CodeSannz/IndoMovie",
+        "fileSize": 19993,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "CodeSannz"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 3,
+        "internalName": "Nodrakorid",
+        "description": "Nodrakorid",
+        "url": "https://raw.githubusercontent.com/CodeSannz/IndoMovie/builds/Nodrakorid.cs3",
+        "name": "Nodrakorid"
+    },
+    {
+        "iconUrl": "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Otakudesu/icon.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/CodeSannz/IndoMovie",
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "CodeSannz"
+        ],
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime",
+            "OVA"
+        ],
+        "version": 16,
+        "internalName": "Otakudesu",
+        "description": "Otakudesu is the place to find the best anime you can find.",
+        "url": "https://raw.githubusercontent.com/CodeSannz/IndoMovie/builds/Otakudesu.cs3",
+        "name": "Otakudesu"
+    },
+    {
+        "iconUrl": "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Pusatfilm/icon.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/CodeSannz/IndoMovie",
+        "fileSize": 20066,
+        "status": 1,
+        "language": "id",
+        "authors": [
+            "CodeSannz"
+        ],
+        "tvTypes": [
+            "AsianDrama",
+            "TvSeries",
+            "Movie"
+        ],
+        "version": 4,
+        "internalName": "Pusatfilm",
+        "description": "Pusatfilm is a plugin that provides streaming links for movies and TV series.",
+        "url": "https://raw.githubusercontent.com/CodeSannz/IndoMovie/builds/Pusatfilm.cs3",
+        "name": "Pusatfilm"
+    }
+]
