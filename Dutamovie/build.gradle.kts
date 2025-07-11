@@ -19,5 +19,5 @@ cloudstream {
         "Movie",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=scandal.dutamovie21.cc&sz=256"
+    iconUrl = "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Dutamovie/icon.png"
 }
