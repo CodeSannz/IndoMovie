@@ -23,5 +23,5 @@ cloudstream {
         "Movie",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=gomov.bio&sz=%size%"
+    iconUrl = "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Pusatfilm/icon.png"
 }
