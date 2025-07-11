@@ -22,5 +22,5 @@ cloudstream {
         "Movie",
     )
 
-    iconUrl = "https://tv.nodrakor22.sbs/wp-content/uploads/2025/01/22-2.png"
+    iconUrl = "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Nodrakorid/icon.png"
 }
