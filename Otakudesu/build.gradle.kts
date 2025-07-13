@@ -23,5 +23,5 @@ cloudstream {
         "OVA",
     )
 
-    iconUrl = "https://www.google.com/s2/favicons?domain=otakudesu.watch&sz=%size%"
+    iconUrl = "https://github.com/CodeSannz/IndoMovie/raw/refs/heads/master/Otakudesu/icon.png"
 }
