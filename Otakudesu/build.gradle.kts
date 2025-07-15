@@ -7,7 +7,7 @@ cloudstream {
     // All of these properties are optional, you can safely remove them
 
     description = "Otakudesu is the place to find the best anime you can find."
-    authors = listOf("TeKuma25", "CodeSannz")
+    authors = listOf("CodeSannz")
 
     /**
      * Status int as the following:
