@@ -1,95 +1,124 @@
 package com.nodrakorid
 
 import com.lagradost.cloudstream3.SubtitleFile
-import com.lagradost.cloudstream3.apmap
+import com.lagradost.cloudstream3.USER_AGENT
 import com.lagradost.cloudstream3.app
-import com.lagradost.cloudstream3.base64Decode
-import com.lagradost.cloudstream3.extractors.*
+import com.lagradost.cloudstream3.base64DecodeArray
 import com.lagradost.cloudstream3.utils.ExtractorApi
 import com.lagradost.cloudstream3.utils.ExtractorLink
-import com.lagradost.cloudstream3.utils.M3u8Helper
-import com.lagradost.cloudstream3.utils.loadExtractor
+import com.lagradost.cloudstream3.utils.INFER_TYPE
+import com.lagradost.cloudstream3.utils.Qualities
 
-open class Uplayer : ExtractorApi() {
-    override val name = "Uplayer"
-    override val mainUrl = "https://uplayer.xyz"
-    override val requiresReferer = true
-
-    override suspend fun getUrl(
-        url: String,
-        referer: String?,
-        subtitleCallback: (SubtitleFile) -> Unit,
-        callback: (ExtractorLink) -> Unit
-    ) {
-        val res = app.get(url,referer=referer).text
-        val m3u8 = Regex("file:\\s*\"(.*?m3u8.*?)\"").find(res)?.groupValues?.getOrNull(1)
-        M3u8Helper.generateM3u8(
-            name,
-            m3u8 ?: return,
-            mainUrl
-        ).forEach(callback)
-    }
-
+class Boosterx : Chillx() {
+    override val name = "Boosterx"
+    override val mainUrl = "https://boosterx.stream"
 }
 
-open class Kotakajaib : ExtractorApi() {
-    override val name = "Kotakajaib"
-    override val mainUrl = "https://kotakajaib.me"
+// Why are so mad at us Cracking it
+open class Chillx : ExtractorApi() {
+    override val name = "Chillx"
+    override val mainUrl = "https://chillx.top"
     override val requiresReferer = true
 
     override suspend fun getUrl(
-        url: String,
-        referer: String?,
-        subtitleCallback: (SubtitleFile) -> Unit,
-        callback: (ExtractorLink) -> Unit
+            url: String,
+            referer: String?,
+            subtitleCallback: (SubtitleFile) -> Unit,
+            callback: (ExtractorLink) -> Unit
     ) {
-        app.get(url,referer=referer).document.select("ul#dropdown-server li a").apmap {
-            loadExtractor(base64Decode(it.attr("data-frame")), "$mainUrl/", subtitleCallback, callback)
+        try {
+            // Fetch the raw response from the URL
+            val res = app.get(url).toString()
+
+            // Extract the encoded string using regex
+            val encodedString =
+                    Regex("const\\s+\\w+\\s*=\\s*'(.*?)'").find(res)?.groupValues?.get(1) ?: ""
+            if (encodedString.isEmpty()) {
+                throw Exception("Encoded string not found")
+            }
+            // Decrypt the encoded string
+            val password = "~%aRg@&H3&QEK1QV"
+            val decryptedData = decryptXOR(encodedString, password)
+            // Extract the m3u8 URL from decrypted data
+            val m3u8 =
+                    Regex("\"?file\"?:\\s*\"([^\"]+)")
+                            .find(decryptedData)
+                            ?.groupValues
+                            ?.get(1)
+                            ?.trim()
+                            ?: ""
+            if (m3u8.isEmpty()) {
+                throw Exception("m3u8 URL not found")
+            }
+
+            // Prepare headers
+            val header =
+                    mapOf(
+                            "accept" to "*/*",
+                            "accept-language" to "en-US,en;q=0.5",
+                            "Origin" to mainUrl,
+                            "Accept-Encoding" to "gzip, deflate, br",
+                            "Connection" to "keep-alive",
+                            "Sec-Fetch-Dest" to "empty",
+                            "Sec-Fetch-Mode" to "cors",
+                            "Sec-Fetch-Site" to "cross-site",
+                            "user-agent" to USER_AGENT
+                    )
+
+            // Return the extractor link
+            callback.invoke(
+                    ExtractorLink(
+                            name,
+                            name,
+                            m3u8,
+                            mainUrl,
+                            Qualities.P1080.value,
+                            INFER_TYPE,
+                            headers = header
+                    )
+            )
+
+            // Extract and return subtitles
+            val subtitles = extractSrtSubtitles(decryptedData)
+            subtitles.forEachIndexed { _, (language, url) ->
+                subtitleCallback.invoke(SubtitleFile(language, url))
+            }
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
         }
     }
 
-}
+    private fun extractSrtSubtitles(subtitle: String): List<Pair<String, String>> {
+        val regex = """\[([^]]+)](https?://[^\s,]+\.srt)""".toRegex()
+        return regex.findAll(subtitle)
+                .map { match ->
+                    val (language, url) = match.destructured
+                    language.trim() to url.trim()
+                }
+                .toList()
+    }
 
-class Doods : DoodLaExtractor() {
-    override var name = "Doods"
-    override var mainUrl = "https://doods.pro"
-}
+    private fun decryptXOR(encryptedData: String, password: String): String {
+        return try {
+            val decodedBytes = base64DecodeArray(encryptedData)
+            val keyBytes = decodedBytes.sliceArray(0 until 16)
+            val dataBytes = decodedBytes.sliceArray(16 until decodedBytes.size)
+            val passwordBytes = password.toByteArray(Charsets.UTF_8)
 
-class Dutamovie21 : StreamSB() {
-    override var name = "Dutamovie21"
-    override var mainUrl = "https://dutamovie21.xyz"
-}
+            val decryptedBytes =
+                    dataBytes
+                            .mapIndexed { i, byte ->
+                                byte.toInt() xor
+                                        passwordBytes[i % passwordBytes.size].toInt() xor
+                                        keyBytes[i % keyBytes.size].toInt()
+                            }
+                            .map { it.toByte() }
+                            .toByteArray()
 
-class FilelionsTo : Filesim() {
-    override val name = "Filelions"
-    override var mainUrl = "https://filelions.to"
-}
-
-class FilelionsOn : Filesim() {
-    override val name = "Filelions"
-    override var mainUrl = "https://filelions.online"
-}
-
-class Lylxan : Filesim() {
-    override val name = "Lylxan"
-    override var mainUrl = "https://lylxan.com"
-}
-
-class Embedwish : Filesim() {
-    override val name = "Embedwish"
-    override var mainUrl = "https://embedwish.com"
-}
-
-class Likessb : StreamSB() {
-    override var name = "Likessb"
-    override var mainUrl = "https://likessb.com"
-}
-
-class DbGdriveplayer : Gdriveplayer() {
-    override var mainUrl = "https://database.gdriveplayer.us"
-}
-
-class Ghbrisk : Filesim() {
-    override var name = "Ghbrisk"
-    override var mainUrl = "https://ghbrisk.com"
+            String(decryptedBytes, Charsets.UTF_8)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            "Decryption Failed"
+        }
+    }
 }
