@@ -15,7 +15,7 @@ import org.jsoup.nodes.Element
 
 class DutaMovie : MainAPI() {
 
-    override var mainUrl = "http://161.35.39.200/"
+    override var mainUrl = "https://cgv.dutamovie21.wiki/"
     private var directUrl: String? = null
     override var name = "DutaMovie"
     override val hasMainPage = true
